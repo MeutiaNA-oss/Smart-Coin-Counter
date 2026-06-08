@@ -8,7 +8,7 @@ PORT = 5000
 app = Flask(__name__)
 
 # CONNECT ESP32
-#esp32 = serial.Serial('COM3', 9600)
+esp32 = serial.Serial('COM3', 9600)
 
 # TOTAL COIN PER JENIS
 coin_100 = 0
@@ -134,8 +134,5 @@ def reset_all():
 
     return redirect('/')
 
-app.run(debug=True)
-
-print("target_money =", target_money)
-print("total_money =", total_money)
-print("target_status =", target_status)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)

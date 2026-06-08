@@ -135,3 +135,7 @@ def reset_all():
     return redirect('/')
 
 app.run(debug=True)
+
+print("target_money =", target_money)
+print("total_money =", total_money)
+print("target_status =", target_status)

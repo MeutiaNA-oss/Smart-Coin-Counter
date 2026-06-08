@@ -1,0 +1,241 @@
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#F7D774;
+    height: 60vh;
+}
+
+/* =========================
+   LAYOUT
+========================= */
+
+.layout{
+    display:flex;
+    min-height:100vh;
+}
+
+.content{
+    flex:1;
+    padding:25px;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar{
+    width:200px;
+    padding:20px;
+    min-height:100vh;
+    color:rgb(0, 0, 0);
+    background:#E8C55A;
+    position:relative;
+}
+
+.sidebar h2{
+    margin-bottom:30px;
+}
+
+.menu-item{
+    display:block;
+
+    padding:12px;
+    margin-bottom:8px;
+
+    color:rgb(0, 0, 0);
+    text-decoration:none;
+    background:#debd4f;
+
+    border-radius:8px;
+    font-family: 'Poppins', sans-serif;
+    transition:0.3s;
+}
+.sidebar-cat{
+    position:absolute;
+
+    bottom:60px;
+    left:-60px;
+
+    width:100%;
+    text-align:center;
+}
+
+.sidebar-cat img{
+    width:220px;
+    margin-bottom:0px;
+    transform:rotate(90deg);
+}
+
+.menu-item:hover{
+    background:#e49a2b;
+}
+
+.active{
+    background:#2563eb;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.title{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.title h1{
+    font-size:40px;
+}
+
+/* =========================
+   TOP CARDS
+========================= */
+
+.cards{
+    display:flex;
+    gap:20px;
+    margin-bottom:20px;
+}
+
+.card{
+    flex:1;
+
+    padding:20px;
+
+    background:white;
+
+    border-radius:12px;
+
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.card h3{
+    margin-bottom:15px;
+}
+
+.card h2{
+    margin-bottom:10px;
+}
+
+/* =========================
+   DASHBOARD GRID
+========================= */
+
+.dashboard{
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:20px;
+
+    margin-top:20px;
+}
+
+.left-panel,
+.right-panel{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+/* =========================
+   PROGRESS BAR
+========================= */
+
+.progress{
+    width:100%;
+    height:12px;
+
+    overflow:hidden;
+
+    background:#e5e7eb;
+
+    border-radius:10px;
+}
+
+.progress-fill{
+    height:100%;
+    background:#22c55e;
+}
+
+/* =========================
+   FORM
+========================= */
+
+input{
+    width:100%;
+
+    padding:10px;
+
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+button{
+    margin:5px;
+    padding:10px 15px;
+
+    border:none;
+    border-radius:8px;
+
+    cursor:pointer;
+}
+
+.button-group{
+    margin-top:10px;
+}
+
+.button-group a{
+    text-decoration:none;
+}
+
+.blue{
+    color:white;
+    background:#4A6FA5;
+}
+
+.green{
+    color:white;
+    background:#22c55e;
+}
+
+.red{
+    color:white;
+    background:#ef4444;
+}
+
+/* =========================
+   STATUS
+========================= */
+
+.status-ok{
+    color:#22c55e;
+    font-weight:bold;
+}
+
+.status-wait{
+    color:#f59e0b;
+    font-weight:bold;
+}
+
+/* =========================
+   LIST
+========================= */
+
+ul{
+    margin-top:10px;
+    margin-left:20px;
+}

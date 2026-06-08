@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Coin Bank</title>
+
+        <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- SIDEBAR -->
+
+    <div class="sidebar">
+
+        <h2>Smart Coin Bank</h2>
+
+        <a href="/" class="menu-item">
+            🏠 Dashboard
+        </a>
+
+        <a href="#" class="menu-item">
+            🪙 Coins
+        </a>
+
+        <a href="#" class="menu-item">
+            📋 History
+        </a>
+
+        <a href="#" class="menu-item">
+            📈 Reports
+        </a>
+
+        <a href="#" class="menu-item">
+            ⚙️ Settings
+        </a>
+        <div class="sidebar-cat">
+            <img src="{{ url_for('static', filename='cat.png') }}">
+        </div>
+    </div>
+
+    <!-- CONTENT -->
+
+    <div class="content">
+
+        <div class="title">
+            <h1>🐱 Smart Coin Bank</h1>
+        </div>
+
+        <!-- TOP CARD -->
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Total Nominal</h3>
+                <h2>Rp {{ total_money }}</h2>
+
+                <div class="progress">
+                    <div class="progress-fill"
+                         style="width: {{ (total_money/target_money*100) if target_money > 0 else 0 }}%">
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Total Coin</h3>
+                <h2>{{ total_coin }}</h2>
+            </div>
+
+            <div class="card">
+                <h3>Target</h3>
+                <h2>Rp {{ target_money }}</h2>
+            </div>
+
+            <div class="card">
+
+                <h3>Status</h3>
+
+                {% if total_money >= target_money and target_money > 0 %}
+                    <h2 class="status-ok">
+                        TARGET TERCAPAI 🎉
+                    </h2>
+                {% else %}
+                    <h2 class="status-wait">
+                        Masih Rp {{ target_status }}
+                    </h2>
+                {% endif %}
+
+            </div>
+
+        </div>
+
+        <!-- BAWAH -->
+
+        <div class="dashboard">
+
+            <!-- KIRI -->
+
+            <div class="left-panel">
+
+                <div class="card">
+
+                    <h3>Mode Aktif Saat Ini</h3>
+
+                    <h2>Rp {{ coin_value }}</h2>
+
+                    <div class="button-group">
+
+                        <a href="/set_coin/100">
+                            <button class="blue">100</button>
+                        </a>
+
+                        <a href="/set_coin/500">
+                            <button class="blue">500</button>
+                        </a>
+
+                        <a href="/set_coin/1000">
+                            <button class="blue">1000</button>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Set Target Tabungan</h3>
+
+                    <form action="/set_target" method="POST">
+
+                        <input
+                            type="number"
+                            name="target_money"
+                            placeholder="Masukkan target">
+
+                        <button class="blue" type="submit">
+                            Simpan Target
+                        </button>
+
+                    </form>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Distribusi Koin</h3>
+
+                    <ul>
+                        <li>Koin 100 : {{ coin_100 }}</li>
+                        <li>Koin 500 : {{ coin_500 }}</li>
+                        <li>Koin 1000 : {{ coin_1000 }}</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <!-- KANAN -->
+
+            <div class="right-panel">
+
+                <div class="card">
+
+                    <h3>Live Status</h3>
+
+                    <p class="status-ok">
+                        ● Online
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Koneksi ESP32</h3>
+
+                    <p>📶 Terhubung</p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Aksi</h3>
+
+                    <a href="/reset_target">
+                        <button class="red">
+                            Reset Target
+                        </button>
+                    </a>
+
+                    <br>
+
+                    <a href="/reset_all">
+                        <button class="red">
+                            Reset Semua
+                        </button>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
